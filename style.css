@@ -307,9 +307,10 @@ body {
 
 .card:hover > img { transform: scale(1.025); }
 
-/* Tall portraits: bias the fixed-height crop toward the subject's face
-   instead of the centre of the frame. */
-.card > img.img-focus-top { object-position: 50% 20%; }
+/* The card image is a fixed 260px cover crop — a wide band. On a square or
+   taller portrait a centred crop lands below the eyes, so bias the focal
+   point upward toward the face. */
+.card > img.img-focus-face { object-position: 50% 30%; }
 
 .card-body { padding: 30px 32px 32px; }
 

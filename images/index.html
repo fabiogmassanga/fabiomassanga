@@ -107,9 +107,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(
 .photo-frame{overflow:hidden;border-radius:8px;border:1px solid var(--line);}
 .photo-card img{width:100%;height:360px;object-fit:cover;border-radius:8px;display:block;transition:transform .6s var(--ease),filter .4s var(--ease);}
 .photo-card:hover img{transform:scale(1.03);filter:brightness(1.04);}
-.photo-card h4{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-top:14px;line-height:1.4;}
-.photo-card h4::after{content:'';display:block;width:22px;height:1px;background:var(--gold);margin-top:8px;transition:width .3s var(--ease);}
-.photo-card:hover h4::after{width:44px;}
+.photo-card h3.photo-caption{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-top:14px;line-height:1.4;}
+.photo-card h3.photo-caption::after{content:'';display:block;width:22px;height:1px;background:var(--gold);margin-top:8px;transition:width .3s var(--ease);}
+.photo-card:hover h3.photo-caption::after{width:44px;}
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;align-items:center;justify-content:center;cursor:pointer;padding:24px;}
 .lb.open{display:flex;}
 .lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;}
@@ -181,15 +181,15 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <div class="photo-grid-3">
         <div class="photo-card" role="button" tabindex="0" data-full="/assets/opt/images-portrait-1.webp">
           <div class="photo-frame"><img src="/assets/opt/images-portrait-1.webp" width="1000" height="900" loading="lazy" decoding="async" alt="Portrait photo of Fábio G. Massanga"></div>
-          <h4>Portrait</h4>
+          <h3 class="photo-caption">Portrait</h3>
         </div>
         <div class="photo-card" role="button" tabindex="0" data-full="/assets/opt/images-luanda-bay.webp">
           <div class="photo-frame"><img src="/assets/opt/images-luanda-bay.webp" width="1200" height="799" loading="lazy" decoding="async" alt="Fábio G. Massanga in Luanda overlooking the bay"></div>
-          <h4>Luanda Bay</h4>
+          <h3 class="photo-caption">Luanda Bay</h3>
         </div>
         <div class="photo-card" role="button" tabindex="0" data-full="/assets/opt/images-portrait-2.webp">
           <div class="photo-frame"><img src="/assets/opt/images-portrait-2.webp" width="900" height="1352" loading="lazy" decoding="async" alt="Formal portrait of Fábio G. Massanga"></div>
-          <h4>Formal Portrait</h4>
+          <h3 class="photo-caption">Formal Portrait</h3>
         </div>
       </div>
     </div>
