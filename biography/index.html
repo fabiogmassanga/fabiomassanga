@@ -97,6 +97,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(
 .banner-title{position:relative;z-index:2;font-family:var(--serif);font-size:clamp(38px,4vw,52px);font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.05;}
 .bio-wrap{background:var(--paper);padding:72px 60px 76px;display:grid;grid-template-columns:1fr 360px;gap:72px;align-items:start;}
 .biography-full h1{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);letter-spacing:-.005em;margin-bottom:26px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.biography-full .bio-h{font-family:var(--serif);font-size:21px;font-weight:600;color:var(--ink);letter-spacing:-.005em;line-height:1.3;max-width:720px;margin:46px 0 18px;padding-top:24px;border-top:1px solid var(--line);position:relative;}
+.biography-full .bio-h::before{content:'';position:absolute;top:-1px;left:0;width:46px;height:1px;background:var(--gold);}
 .biography-full p{font-size:16px;line-height:1.85;color:var(--ink);font-weight:300;margin-bottom:22px;max-width:720px;}
 .biography-full p:first-child{font-size:19px;line-height:1.75;color:var(--ink);font-weight:400;}
 .biography-full p:first-child::first-letter{font-family:var(--serif);font-size:56px;font-weight:600;float:left;line-height:.9;padding:6px 12px 0 0;color:var(--gold-deep);}
@@ -120,7 +122,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(
 .socials a:hover{color:var(--gold-soft);border-color:rgba(201,166,66,.55);transform:translateY(-2px);}
 .socials svg{width:17px;height:17px;fill:currentColor;}
 .copy{font-size:11px;color:rgba(250,248,243,.34);letter-spacing:.18em;text-transform:uppercase;font-weight:500;}
-@media (max-width:1080px){
+@media (max-width:1080px){.biography-full .bio-h{font-size:19px;margin:36px 0 14px;padding-top:20px;}
   .banner{padding:0 28px 28px;min-height:140px;}
   .banner-title{font-size:32px;}
   .bio-wrap{grid-template-columns:1fr;padding:36px 28px 40px;gap:36px;}
@@ -190,15 +192,20 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="bio-wrap">
     <section class="biography-full">
       <p>Fábio G. Massanga is an Angolan entrepreneur, infrastructure architect, and financial systems builder. He is the Founder of Cubeshackles and Managing Member of Biu-g Holdings LLC, focused on building sovereign financial infrastructure for Africa, beginning with Angola.</p>
+      <h2 class="bio-h">Origins and Education</h2>
       <p>He was born and raised in Cabinda, Angola, in a middle-class household, where early exposure to the country’s telecommunications and banking sectors shaped his understanding of how financial access is structured—and where it breaks. Despite progress across Angola’s financial and telecom industries, he identified persistent infrastructure gaps in identity verification, payment visibility, and institutional coordination.</p>
       <p>Massanga attended Dom Paulino Madeca School, where he demonstrated early discipline and competitive focus, winning a junior tennis competition sponsored by Chevron. He later graduated from Instituto Privado Colégio Padre Builu with a concentration in Accounting and Management, forming the foundation of his analytical approach to business and finance.</p>
       <p>He pursued higher education in Luanda across two institutions: Universidade Lusíadas de Angola, where he studied Foreign Affairs, and Faculdade de Administração e Negócios, where he focused on Marketing and Management. During this period, he worked full-time in the service sector in Benfica, Luanda, supporting himself while continuing his academic path.</p>
+      <h2 class="bio-h">United States and Capital Markets</h2>
       <p>He later relocated to the United States, where he developed a deeper understanding of labor markets, economic systems, capital formation, and entrepreneurship through direct exposure and practical experience.</p>
       <p>In 2021, he began actively managing his own investment portfolio, focusing on equities and options markets. In 2022, he expanded into global derivatives markets through proprietary trading environments, gaining exposure to structured capital allocation, performance-based evaluation systems, and multi-asset execution.</p>
       <p>By 2024, he made a deliberate decision to concentrate his activity in futures markets, prioritizing execution precision, liquidity depth, and standardized risk management. His experience in capital markets became instrumental in shaping his approach to disciplined execution, risk control, and decision-making under uncertainty.</p>
+      <h2 class="bio-h">Cubeshackles</h2>
       <p>His current work centers on Cubeshackles—an Angola-first financial infrastructure layer designed to enable identity-linked transactions, payment visibility, informal market digitization, and regulator-readable operating systems. The platform is being engineered to operate within Angola’s financial and regulatory architecture from inception, in alignment with institutions such as the Banco Nacional de Angola (BNA), Ministério das Finanças, Administração Geral Tributária (AGT), Agência Angolana de Regulação e Supervisão de Seguros (ARSEG), and the Comissão do Mercado de Capitais (CMC).</p>
       <p>His core thesis is that Africa’s financial access challenge is not solely a banking issue, but a structural infrastructure problem requiring coordinated systems across identity, compliance, payments, and public trust. Cubeshackles addresses this by building a regulator-readable, identity-anchored financial layer designed for Angola’s operational reality from inception.</p>
+      <h2 class="bio-h">BIU.G Academy</h2>
       <p>In parallel, he founded BIU.G Academy, a financial literacy and sovereign economic empowerment platform to serve Angola and the broader African continent, providing the educational foundation that complements his infrastructure work.</p>
+      <h2 class="bio-h">Writing and Current Focus</h2>
       <p>He publishes his views on LinkedIn, and his work is documented at <a href="https://test.cubeshackles.com" target="_blank" rel="noopener">Cubeshackles.com</a> and <a href="https://biugacademy.org" target="_blank" rel="noopener">BIUGAcademy.org</a>.</p>
       <p>His work sits at the intersection of financial infrastructure, regulatory alignment, and sovereign system design, with a focus on building identity-linked, regulator-readable platforms that integrate payments, compliance, and transaction visibility into a unified operational layer for Angola and, over time, the broader African continent.</p>
     </section>
