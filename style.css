@@ -299,18 +299,22 @@ body {
 
 .card > img {
   width: 100%;
-  height: 260px;
+  /* A fixed pixel height threw away 34-55% of every photograph and cut faces
+     in half. A ratio box scales with the card, so the crop stays gentle at
+     any width — and 3:2 matches the native ratio of most of the artwork. */
+  aspect-ratio: 3 / 2;
+  height: auto;
   object-fit: cover;
   display: block;
   transition: transform .6s var(--ease);
 }
 
-.card:hover > img { transform: scale(1.025); }
+/* Older browsers without aspect-ratio still need a sane box */
+@supports not (aspect-ratio: 3 / 2) {
+  .card > img { height: 300px; }
+}
 
-/* The card image is a fixed 260px cover crop — a wide band. On a square or
-   taller portrait a centred crop lands below the eyes, so bias the focal
-   point upward toward the face. */
-.card > img.img-focus-face { object-position: 50% 30%; }
+.card:hover > img { transform: scale(1.025); }
 
 .card-body { padding: 30px 32px 32px; }
 
@@ -640,11 +644,21 @@ body {
 @media (max-width: 900px) {
   :root { --sidebar: 0px; --header: 82px; --pad-x: 28px; }
 
-  html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
+  /* clip, not hidden: overflow-x: hidden forces overflow-y to auto, which
+     turned body and .page into nested scroll containers that trapped touch
+     and wheel gestures. clip trims sideways overflow without scrolling. */
+  html, body { overflow-x: clip; width: 100%; max-width: 100%; }
 
   .header { height: var(--header); padding: 0 26px; }
 
-  .page { max-width: 100%; overflow-x: hidden; }
+  .page { max-width: 100%; overflow-x: clip; }
+
+  /* Pre-2022 engines without clip: hide on the root only, which applies to
+     the viewport and never creates an inner scroller. */
+  @supports not (overflow-x: clip) {
+    html { overflow-x: hidden; }
+    body, .page { overflow-x: visible; }
+  }
 
   .mobile-menu {
     display: inline-flex;
