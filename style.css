@@ -1148,4 +1148,5 @@ html.no-js .reveal { opacity: 1 !important; transform: none !important; }
 }
 .contact-form button { justify-self: start; margin-top: 12px; }
 .contact-note { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.contact-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 [data-contact-section][hidden], [data-contact-section] [hidden] { display: none !important; }
