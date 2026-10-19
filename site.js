@@ -221,3 +221,53 @@
     requestAnimationFrame(tick);
   }
 })();
+
+/* Contact/booking section and opt-in analytics (both inert until configured). */
+(function () {
+  var section = document.querySelector("[data-contact-section]");
+  if (section) {
+    var booking = (section.getAttribute("data-booking-url") || "").trim();
+    var endpoint = (section.getAttribute("data-form-endpoint") || "").trim();
+    var email = (section.getAttribute("data-contact-email") || "").trim();
+    var bookingLink = section.querySelector("[data-contact-booking]");
+    var mailLink = section.querySelector("[data-contact-mail]");
+    var form = section.querySelector("[data-contact-form]");
+    if (booking && bookingLink) {
+      bookingLink.href = booking;
+      bookingLink.hidden = false;
+    }
+    if (email && mailLink) {
+      mailLink.href = "mailto:" + email;
+      mailLink.hidden = false;
+    }
+    if (endpoint && form) {
+      form.action = endpoint;
+      form.hidden = false;
+    }
+    if (booking || endpoint || email) section.hidden = false;
+  }
+
+  function metaContent(name) {
+    var el = document.querySelector('meta[name="' + name + '"]');
+    return el ? (el.getAttribute("content") || "").trim() : "";
+  }
+  var cfToken = metaContent("fm-cf-analytics-token");
+  if (cfToken) {
+    var cf = document.createElement("script");
+    cf.defer = true;
+    cf.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    cf.setAttribute("data-cf-beacon", JSON.stringify({ token: cfToken }));
+    document.head.appendChild(cf);
+  }
+  var gaId = metaContent("fm-ga4-id");
+  if (gaId) {
+    var ga = document.createElement("script");
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gaId);
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", gaId);
+  }
+})();
