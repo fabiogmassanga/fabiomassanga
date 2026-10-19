@@ -46,6 +46,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
+  <!-- Analytics (disabled). To enable Cloudflare Web Analytics (cookieless, no consent
+       banner needed), set the token below; site.js loads the beacon only when the content
+       is non-empty. No token is committed. Cookie-based trackers (e.g. GA4) are deliberately
+       not wired: they would need a consent mechanism first. -->
+  <meta name="fm-cf-analytics-token" content="" />
   <link rel="preload" as="image" href="/assets/opt/hero-main.webp" fetchpriority="high" />
 
   <!-- Structured data: Person + Website -->
@@ -348,6 +353,57 @@
           <p>Financial literacy and sovereign economic empowerment platform serving Angola and the broader African continent.</p>
         </a>
       </div>
+    </section>
+
+    <!-- ── CONTACT / BOOKING (placeholder; hidden until configured) ──
+         Stays hidden (and invisible to visitors) until at least one of
+         data-booking-url / data-form-endpoint / data-contact-email is set.
+         Copy and channels require Founder approval before going live.
+         No pricing is shown here by design. -->
+    <section class="home-sec reveal" id="contact" aria-labelledby="contact-heading" hidden
+             data-contact-section
+             data-booking-url=""
+             data-form-endpoint=""
+             data-contact-email="">
+      <div class="home-sec__eyebrow">Contact</div>
+      <h2 class="home-sec__title" id="contact-heading">Speaking, Advisory &amp; Partnership Inquiries</h2>
+      <p class="home-sec__intro">
+        For speaking invitations, institutional briefings, media requests and partnership discussions, please use one of the channels below.
+      </p>
+
+      <div class="contact-actions">
+        <a class="contact-btn" data-contact-booking hidden href="#" target="_blank" rel="noopener">Request a meeting</a>
+        <a class="contact-btn contact-btn--ghost" data-contact-mail hidden href="#">Email the office</a>
+      </div>
+
+      <form class="contact-form" data-contact-form hidden method="POST">
+        <input type="hidden" name="_subject" value="fabiomassanga.com inquiry" />
+        <input type="hidden" name="_next" value="https://fabiomassanga.com/#contact" />
+        <div class="contact-hp" aria-hidden="true">
+          <label for="contact-website">Leave this field empty</label>
+          <input id="contact-website" name="_honey" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" required />
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required />
+        <label for="contact-org">Organization (optional)</label>
+        <input id="contact-org" name="organization" type="text" autocomplete="organization" />
+        <label for="contact-topic">Topic</label>
+        <select id="contact-topic" name="topic" required>
+          <option value="">Select a topic</option>
+          <option value="speaking">Speaking invitation</option>
+          <option value="briefing">Institutional briefing</option>
+          <option value="media">Media request</option>
+          <option value="partnership">Partnership</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" required></textarea>
+        <button class="contact-btn" type="submit" aria-describedby="contact-privacy">Send inquiry</button>
+        <p class="contact-note" id="contact-privacy">Privacy: the details you enter (name, email, organization, topic and message) are sent to the office through our form provider and used only to reply to your inquiry. They are not sold or used for marketing. Please do not include sensitive personal information.</p>
+        <p class="contact-note">Submitting this form does not create an advisory, client or contractual relationship.</p>
+      </form>
     </section>
   </main>
 
